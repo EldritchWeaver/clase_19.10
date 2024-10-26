@@ -14,7 +14,7 @@ document.getElementById("sum").innerHTML = text1;
 
 /* ---------------------------------------------- */
 
-var count = 1;
+var count = 0;
 var text = "";
 
 while (count < 10) {
