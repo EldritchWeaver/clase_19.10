@@ -4,8 +4,8 @@
  */
 
 
-var numeroUno = prompt("Introduzca numero 1: ", 0);
-var numeroDos = prompt("Introduzca numero 2: ", 0);
+var numeroUno = prompt("Introduzca el primer numero: ", 0);
+var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
 numeroUno = parseInt(numeroUno);
 numeroDos = parseInt(numeroDos);
