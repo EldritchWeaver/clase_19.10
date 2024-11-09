@@ -1,3 +1,5 @@
+'user strict';
+
 /*
  * EJERCICIO 1 
  * PROGRAMA MUESTRA TODOS LOS NÚMEROS IMPARES INTRODUCIDOS ENTRE DOS NÚMEROS POR EL USUARIO
@@ -7,15 +9,26 @@
 var numeroUno = prompt("Introduzca el primer numero: ", 0);
 var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
-if (parseInt(numeroUno) < 0) {
+/* -------------------------------------------------------------------------- */
+
+if (parseInt(numeroDos) == parseInt(numeroUno) < 0 ) {
+
+    alert("Los Numeros son iguales");
+
+    var numeroUno = prompt("Introduzca el primer numero otra vez: ", 0);
+    var numeroDos = prompt("Introduzca el segundo numero otra vez: ", 0);
+
+    numeroUno = parseInt(numeroUno);
+    numeroDos = parseInt(numeroDos);
+    
+} else if (parseInt(numeroUno) < 0) {
 
     alert("Numero menor a 0");
 
     var numeroUno = prompt("Introduzca el primer numero otra vez: ", 0);
     numeroUno = parseInt(numeroUno);
-}
 
-if (parseInt(numeroDos) < 0) {
+} else if (parseInt(numeroDos) < 0) {
 
     alert("Numero menor a 0");
 
@@ -23,8 +36,7 @@ if (parseInt(numeroDos) < 0) {
     numeroDos = parseInt(numeroDos);
 }
 
-
-
+/* -------------------------------------------------------------------------- */
 
 if (numeroUno > numeroDos) {
 
