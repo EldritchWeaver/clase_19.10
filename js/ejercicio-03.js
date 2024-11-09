@@ -8,9 +8,10 @@ var num = prompt("Introduzca un numero: ", 0);
 if (parseInt(num) < 0) {
 
     alert("Numero menor a 0");
-    var numeroUno = prompt("Introduzca el numero otra vez: ", 0);
+    var num = prompt("Introduzca el numero otra vez: ", 0);
+
     num = parseInt(num);
-    
+
 }
 
 document.write('<h1> Tabla de Multiplicar del ' + num + '</h1>');
