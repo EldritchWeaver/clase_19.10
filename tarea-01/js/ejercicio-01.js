@@ -11,7 +11,7 @@ var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
 /* -------------------------------------------------------------------------- */
 
-if (parseInt(numeroDos) == parseInt(numeroUno) < 0 ) {
+if (parseInt(numeroDos) == parseInt(numeroUno)) {
 
     alert("Los Numeros son iguales");
 
