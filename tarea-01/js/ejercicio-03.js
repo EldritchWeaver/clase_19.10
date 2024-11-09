@@ -6,7 +6,7 @@
 
 var num = prompt("Introduzca un numero: ", 0);
 
-if (parseInt(num) < 0) {
+while (parseInt(num) < 0) {
 
     alert("Numero menor a 0");
     var num = prompt("Introduzca el numero otra vez: ", 0);

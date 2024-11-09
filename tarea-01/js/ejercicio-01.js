@@ -11,7 +11,7 @@ var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
 /* -------------------------------------------------------------------------- */
 
-if (parseInt(numeroDos) == parseInt(numeroUno)) {
+while (parseInt(numeroDos) == parseInt(numeroUno)) {
 
     alert("Los Numeros son iguales");
 
@@ -21,14 +21,16 @@ if (parseInt(numeroDos) == parseInt(numeroUno)) {
     numeroUno = parseInt(numeroUno);
     numeroDos = parseInt(numeroDos);
     
-} else if (parseInt(numeroUno) < 0) {
+}
+while (parseInt(numeroUno) < 0) {
 
     alert("Numero menor a 0");
 
     var numeroUno = prompt("Introduzca el primer numero otra vez: ", 0);
     numeroUno = parseInt(numeroUno);
 
-} else if (parseInt(numeroDos) < 0) {
+}
+while (parseInt(numeroDos) < 0) {
 
     alert("Numero menor a 0");
 
