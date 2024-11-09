@@ -1,14 +1,28 @@
 /*
  * EJERCICIO 2 
- * PROGRAMA QUE SOLICITE  DOS NÚMEROS E IMPIRMA LOS NúMEROS QUE SE ENCUENTRAN ENTRE ESOS DOS NÚMEROS INTRODUCIDOS POR EL USUARIO CONCATENANDO LA FRASE "ED-"
+ * PROGRAMA QUE SOLICITE  DOS NÚMEROS E IMPIRMA LOS NúMEROS QUE SE ENCUENTRAN ENTRE
+ * ESOS DOS NÚMEROS INTRODUCIDOS POR EL USUARIO CONCATENANDO LA FRASE "ED-"
  * EJEMPLO INGRESO 1, 5.. IMPRIMA 2,3,4 
  */
 
 var numeroUno = prompt("Introduzca el primer numero: ", 0);
 var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
-numeroUno = parseInt(numeroUno);
-numeroDos = parseInt(numeroDos);
+if (parseInt(numeroUno) < 0) {
+
+    alert("Numero menor a 0");
+
+    var numeroUno = prompt("Introduzca el primer numero otra vez: ", 0);
+    numeroUno = parseInt(numeroUno);
+}
+
+if (parseInt(numeroDos) < 0) {
+
+    alert("Numero menor a 0");
+
+    var numeroUno = prompt("Introduzca el segundo numero otra vez: ", 0);
+    numeroDos = parseInt(numeroDos);
+}
 
 
 if (numeroUno > numeroDos) {

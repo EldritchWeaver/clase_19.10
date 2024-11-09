@@ -4,8 +4,14 @@
  */
 
 var num = prompt("Introduzca un numero: ", 0);
-num = parseInt(num);
 
+if (parseInt(num) < 0) {
+
+    alert("Numero menor a 0");
+    var numeroUno = prompt("Introduzca el numero otra vez: ", 0);
+    num = parseInt(num);
+    
+}
 
 document.write('<h1> Tabla de Multiplicar del ' + num + '</h1>');
 console.log("Tabla de Multiplicar del " + num);

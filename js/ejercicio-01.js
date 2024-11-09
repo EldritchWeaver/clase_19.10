@@ -7,8 +7,23 @@
 var numeroUno = prompt("Introduzca el primer numero: ", 0);
 var numeroDos = prompt("Introduzca el segundo numero: ", 0);
 
-numeroUno = parseInt(numeroUno);
-numeroDos = parseInt(numeroDos);
+if (parseInt(numeroUno) < 0) {
+
+    alert("Numero menor a 0");
+
+    var numeroUno = prompt("Introduzca el primer numero otra vez: ", 0);
+    numeroUno = parseInt(numeroUno);
+}
+
+if (parseInt(numeroDos) < 0) {
+
+    alert("Numero menor a 0");
+
+    var numeroUno = prompt("Introduzca el segundo numero otra vez: ", 0);
+    numeroDos = parseInt(numeroDos);
+}
+
+
 
 
 if (numeroUno > numeroDos) {
