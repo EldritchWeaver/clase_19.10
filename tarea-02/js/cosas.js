@@ -115,55 +115,63 @@ const carritoDeCompras = {
     this.productos = 0;
   }
 };
-
-/*--------------LOOP_SECTION----------------*/
-const productos = [
-  { id: 1, nombre: "Laptop HP", precioPorUnidad: 800},
-  { id: 2, nombre: "Smartphone Samsung", precioPorUnidad: 600},
-  { id: 3, nombre: "Auriculares Sony", precioPorUnidad: 100},
-  { id: 4, nombre: "Teclado Mecánico Razer", precioPorUnidad: 120},
-  { id: 5, nombre: "Monitor LG 27\"", precioPorUnidad: 300},
-  { id: 6, nombre: "Disco Duro Externo 1TB", precioPorUnidad: 80},
-  { id: 7, nombre: "Impresora Canon", precioPorUnidad: 150},
-  { id: 8, nombre: "Webcam Logitech", precioPorUnidad: 70},
-  { id: 9, nombre: "Proyector Epson", precioPorUnidad: 400},
-  { id: 10, nombre: "Ratón Inalámbrico", precioPorUnidad: 50}
-];
-let i = 'no';
 let iva = 16;
-do {
-  alert("¡Bienvenido!\n Este es el Carrito de Compras de la Tienda de Don Gorge.");
 
-  i = prompt('¿Desea Comprar? si / no');
-  
-  if (i === 'si' || i === 'SI' || i === 'Si' || i === 'sI') {
+let productos = [
+  [1, "Laptop HP", 800],
+  [2, "Smartphone Samsung", 600],
+  [3, "Auriculares Sony", 100],
+  [4, "Teclado Mecánico Razer", 120],
+  [5, "Monitor LG 27''", 300],
+  [6, "Disco Duro Externo 1TB", 80],
+  [7, "Impresora Canon", 150],
+  [8, "Webcam Logitech", 70],
+  [9, "Proyector Epson", 400],
+  [10, "Ratón Inalámbrico", 50]
+];
+// alert("Este es un mensaje con un salto de línea.\n¡Bienvenido!");
+/*--------------INSTANTIATE_SECTION----------------*/
 
-    console.log('Catalogo de Productos:\n' +
-      '---------------------------------------------' + '\n' +
-      'ID | Articulo => Precio Unitario\n' +
-      catalogo(productos) +
-      '---------------------------------------------' + '\n' +
-      'Si desea comprar algo, de aceptar para continuar.'
-     );
-
-    alert('OK! Vea nuestro catalogo:\n' +
-          '---------------------------------------------' + '\n' +
-          'ID | Articulo => Precio Unitario\n' +
-          catalogo(productos)+
-          '---------------------------------------------' + '\n' +
-          ' Si desea comprar algo, de aceptar para continuar.'
-          );
-  } else {
-    i = 'no'
-  }
-
-} while (i === 'si');
-
-function catalogo(productos) {
-  let catalogo = [];
-  for (let i = 0; i < productos.length; i++) {
-    const { id, nombre, precioPorUnidad} = productos[i];
-    catalogo.push(id + ' | ' + nombre + ' => ' + precioPorUnidad + '\$ \n');
-  };
-  return catalogo;
+/* carritoDeCompras.agregarProducto(0, 'Papelon', 2.4, 10);
+carritoDeCompras.agregarProducto(1, 'Yuca', 1.5, 5);
+carritoDeCompras.agregarProducto(productos[1][0], productos[1][1], productos[1][2], 4); */
+let count = 0;
+for (let i = 0; i < productos.length; i++) {
+  let cantidad = i * (productos.length / 2) +1;
+  carritoDeCompras.agregarProducto(productos[i][count], productos[i][count+1], productos[i][count+2], cantidad);
 }
+
+// carritoDeCompras.vaciarCarrito();
+/*
+if (carritoDeCompras.productos.length > 0) {
+
+  carritoDeCompras.productos[1].actualizarPrecio(5, 20)
+  carritoDeCompras.productos[1].calcularVenta();
+
+} else {
+
+    console.log("No hay productos en el carrito.");
+
+};
+*/
+carritoDeCompras.calcularTotalArticulosMontoTotal();
+carritoDeCompras.calcularImpuestos(iva);
+carritoDeCompras.calcularTotalAPagar();
+
+//carritoDeCompras.removerProducto(0);
+//carritoDeCompras.vaciarCarrito();
+
+/*-----------------RENDER_SECTION------------------*/
+
+if (carritoDeCompras.productos.length > 0) {
+
+  carritoDeCompras.mostrarCompraPorConsola();
+  carritoDeCompras.mostrarCompraConAlert();
+
+} else {
+
+    console.log("No hay productos en el carrito.");
+
+};
+
+
