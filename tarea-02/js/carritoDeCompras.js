@@ -67,11 +67,12 @@ const carritoDeCompras = {
     console.log('Items comprados: ' + this.totalArticulos);
    
   },
-  removerProducto: function() {
-    undefined;
+  removerProducto: function(idProducto) {
+    // falta añadir casos de uso, tipo cuantos elementos va a quitar, y si son todos elimine el producto directamente
+    this.productos = this.productos.filter(producto => producto.id !== idProducto)
   },
   vaciarCarrito: function() {
-    this.productos.length = 0;
+    this.productos = 0;
   }
 };
 let iva = 16;
@@ -80,18 +81,23 @@ let iva = 16;
 carritoDeCompras.agregarProducto(0, 'Papelon', 2.4, 10);
 carritoDeCompras.agregarProducto(1, 'Yuca', 1.5
 , 5);
-carritoDeCompras.vaciarCarrito();
+// carritoDeCompras.vaciarCarrito();
 if (carritoDeCompras.productos.length > 0) {
   carritoDeCompras.productos[1].actualizarPrecio(5, 20)
   carritoDeCompras.productos[1].calcularVenta();
 } else {
     console.log("No hay productos en el carrito.");
 };
+
 carritoDeCompras.calcularTotalArticulosMontoTotal();
 carritoDeCompras.calcularImpuestos(iva);
 carritoDeCompras.calcularTotalAPagar();
 
-
-carritoDeCompras.vaciarCarrito();
+carritoDeCompras.removerProducto(0);
+//carritoDeCompras.vaciarCarrito();
 /*-----------------RENDER_SECTION------------------*/
-carritoDeCompras.mostrarCompraPorConsola()
+if (carritoDeCompras.productos.length > 0) {
+  carritoDeCompras.mostrarCompraPorConsola()
+} else {
+    console.log("No hay productos en el carrito.");
+};
