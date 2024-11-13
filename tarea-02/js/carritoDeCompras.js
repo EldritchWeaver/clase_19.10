@@ -8,7 +8,6 @@ const productoBase = {
   precio: 0.0,
   cantidad: 0,
   venta: 0.0,
-  
   actualizarPrecio: function(nuevoPrecio, masItems) {
     this.precio = nuevoPrecio;
     this.cantidad = masItems;
@@ -18,7 +17,6 @@ const productoBase = {
     // console.log('venta: ' + this.venta);
   }
 };
-
 // Esteuctura del Carrito de compras:
 const carritoDeCompras = {
   productos: [],
@@ -26,7 +24,6 @@ const carritoDeCompras = {
   montoTotal: 0.0,
   impuestos: 0.0,
   totalAPagar: 0.0,
-  
   agregarProducto: function(idProducto, nombreProducto, precioUnitario, cantidadComprada) {
     const nuevoProducto = Object.create(productoBase);
     nuevoProducto.id = idProducto;
@@ -34,9 +31,7 @@ const carritoDeCompras = {
     nuevoProducto.precio = precioUnitario;
     nuevoProducto.cantidad = cantidadComprada;
     nuevoProducto.calcularVenta();
-    
     // console.log(nuevoProducto.venta);
-
     this.productos.push(nuevoProducto);
   },
   calcularTotalArticulosMontoTotal: function() {
@@ -62,27 +57,21 @@ const carritoDeCompras = {
   },
   mostrarCompraPorConsola: function() {
     let size = this.productos.length;
-    if (size >= 0) {
-      for (let i = 0; i < size; i++) {
-        
-       const { id, nombre, precio, cantidad, venta } = this.productos[i];
-       
-       console.log(id + ' | ' + nombre + ' : ' + cantidad + ' | ' + precio + ' | ' + venta);
-      };
-      
-      console.log('Monto Total: ' + this.montoTotal);
-      console.log('Iva 16%  ----- ' + this.impuestos);
-      console.log('-----------------');
-      console.log('Items comprados: ' + this.totalArticulos);
-    } else {
-     console.log("No hay productos en el carrito.");
+    for (let i = 0; i < size; i++) {
+      const { id, nombre, precio, cantidad, venta } = this.productos[i];
+      console.log(id + ' | ' + nombre + ' : ' + cantidad + ' | ' + precio + ' | ' + venta);
     };
+    console.log('Monto Total: ' + this.montoTotal);
+    console.log('Iva 16%  ----- ' + this.impuestos);
+    console.log('-----------------');
+    console.log('Items comprados: ' + this.totalArticulos);
+   
   },
   removerProducto: function() {
     undefined;
   },
   vaciarCarrito: function() {
-    undefined;
+    this.productos.length = 0;
   }
 };
 let iva = 16;
@@ -91,13 +80,18 @@ let iva = 16;
 carritoDeCompras.agregarProducto(0, 'Papelon', 2.4, 10);
 carritoDeCompras.agregarProducto(1, 'Yuca', 1.5
 , 5);
-
-carritoDeCompras.productos[1].actualizarPrecio(5, 20)
-carritoDeCompras.productos[1].calcularVenta();
-
+carritoDeCompras.vaciarCarrito();
+if (carritoDeCompras.productos.length > 0) {
+  carritoDeCompras.productos[1].actualizarPrecio(5, 20)
+  carritoDeCompras.productos[1].calcularVenta();
+} else {
+    console.log("No hay productos en el carrito.");
+};
 carritoDeCompras.calcularTotalArticulosMontoTotal();
 carritoDeCompras.calcularImpuestos(iva);
 carritoDeCompras.calcularTotalAPagar();
 
+
+carritoDeCompras.vaciarCarrito();
 /*-----------------RENDER_SECTION------------------*/
 carritoDeCompras.mostrarCompraPorConsola()
