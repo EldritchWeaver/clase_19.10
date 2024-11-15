@@ -1,7 +1,7 @@
 'user strict';
 /*---------------OBJECTS_DEFINITION_SECTION----------------*/
 
-// Estructura basica de cada producto:
+// ESTRUCTURA BASICA DE CADA PRODUCTO:
 const productoBase = {
   id: 0,
   nombre: "",
@@ -21,9 +21,9 @@ const productoBase = {
     this.venta = this.cantidad * this.precio;
     // console.log('venta: ' + this.venta);
   }
-};
+}; // FIN DE LA ESTRUCTURA BASICA DE CADA PRODUCTO.
 
-// Estructura del Carrito de compras:
+// ESTRUCTURA DEL CARRITO DE COMPRAS:
 const carritoDeCompras = {
 
   productos: [],
@@ -128,8 +128,9 @@ const carritoDeCompras = {
           'Items: ' + this.totalArticulos + '\n' +
           '---------------------------------------------'
         );
-  }
-};
+  } 
+}; // FIN DE LA ESTRUCTURA DEL CARRITO DE COMPRAS.
+/*---------------OBJECTS_DEFINITION_SECTION----------------*/
 
 /*--------------FUNCTIONS_DEFINITION_SECTION----------------*/
 function catalogo(productos) {
@@ -188,6 +189,7 @@ function ingresarOption() {
   };
   return option;
 };
+/*--------------FUNCTIONS_DEFINITION_SECTION----------------*/
 
 /*--------------VARIABLES_DEFINITION_SECTION----------------*/
 const articulos = [
@@ -202,10 +204,19 @@ const articulos = [
   { id: 9, nombre: "Proyector Epson", precioPorUnidad: 400},
   { id: 10, nombre: "Ratón Inalámbrico", precioPorUnidad: 50}
 ];
-let i = 'no';
+
 const iva = 16;
+
+
+/*--------------DON'T MODIFY_THIS_VARIABLES_PLEASE_SECTION----------------*/
+let i = 'no';
 let option = '';
 let idProducto = 0;
+/*--------------DON'T MODIFY_THIS_VARIABLES_PLEASE_SECTION----------------*/
+
+/*--------------VARIABLES_DEFINITION_SECTION----------------*/
+
+
 /*--------------LOOP/MAIN_SECTION----------------*/
 alert("¡Bienvenido!\n Este es el Carrito de Compras de la Tienda de Don Gorge.");
 
@@ -306,3 +317,4 @@ while (option !== 'salir') {
       break;
   }
 };
+/*--------------LOOP/MAIN_SECTION----------------*/
