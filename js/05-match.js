@@ -18,3 +18,15 @@ switch (true) {
         console.log("Sos marciano");
         break;
 }
+
+
+if (productos.find(producto => producto.id === articuloId)) {
+    let indice = carritoDeCompras.productos.findIndex(producto => producto.id === idProducto);
+  
+    carritoDeCompras.productos[indice].actualizarCantidad(cantidadComprada);
+    carritoDeCompras.productos[indice].calcularVenta();
+  
+  } else {
+    carritoDeCompras.agregarProducto(articuloId, nombreProducto, precioUnitario, cantidadComprada);
+  }
+  

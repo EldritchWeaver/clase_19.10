@@ -9,15 +9,12 @@ const productoBase = {
   cantidad: 0,
   venta: 0.0,
   actualizarPrecio: function(nuevoPrecio) {
-    this.precio = 0.0;
     this.precio = nuevoPrecio;
   },
   actualizarCantidad: function(nuevaCantidad) {
-    this.cantidad = 0;
     this.cantidad = nuevaCantidad;
   },
   calcularVenta: function() {
-    this.venta = 0.0;
     this.venta = this.cantidad * this.precio;
     // console.log('venta: ' + this.venta);
   }
@@ -35,10 +32,8 @@ const carritoDeCompras = {
     
     if (this.productos.find(producto => producto.id === idProducto)) {
         let indice = this.productos.findIndex(producto => producto.id === idProducto);
-
-        let nuevaCantidad = cantidadComprada;
   
-        this.productos[indice].actualizarCantidad(nuevaCantidad);
+        this.productos[indice].actualizarCantidad(cantidadComprada);
         this.productos[indice].calcularVenta();
   
     } else {
@@ -58,11 +53,9 @@ const carritoDeCompras = {
     this.productos = this.productos.filter(producto => producto.id !== idProducto)
   },
   vaciarCarrito: function() {
-    this.productos = [];
+    this.productos = 0;
   },
   calcularTotalArticulosMontoTotal: function() {
-    this.totalArticulos = 0;
-    this.montoTotal = 0.0;
 
     let size = this.productos.length;
     // console.log(size);
@@ -79,7 +72,7 @@ const carritoDeCompras = {
     // console.log(this.montoTotal);
   },
   calcularImpuestos: function(iva) {
-    this.impuesto = 0.0;
+
     let impuesto = iva / 100;
     // console.log(impuesto)
     
@@ -87,7 +80,7 @@ const carritoDeCompras = {
     // console.log(this.impuestos);
   },
   calcularTotalAPagar: function() {
-    this.totalAPagar = 0.0;
+
     this.totalAPagar = this.montoTotal + this.impuestos;
   },
   productosDetalles: function(){
@@ -204,8 +197,7 @@ const articulos = [
 ];
 let i = 'no';
 const iva = 16;
-let option = '';
-let idProducto = 0;
+
 /*--------------LOOP/MAIN_SECTION----------------*/
 alert("¡Bienvenido!\n Este es el Carrito de Compras de la Tienda de Don Gorge.");
 
@@ -218,42 +210,36 @@ if (i === 'si' || i === 'SI' || i === 'Si' || i === 'sI') {
 };
 
 while (option !== 'salir') {
+  mostrarCatalogo(articulos);
+
+  let idProducto = prompt('Ingrese el ID del articulo que desea comprar: ');    
+  idProducto = parseInt(idProducto);
+
+  while (articulos.some(articulo => articulo.id === idProducto) === false) {
+
+    alert('Error: Opcion no valida. Vuelva a intentar.');
+    idProducto = prompt('Ingrese el ID del articulo que desea comprar: ');
+    idProducto = parseInt(idProducto);
+
+  };
+
+  let cantidadComprada = prompt('Ingrese la cantidad que desea comprar: ', 1);
+  cantidadComprada = parseInt(cantidadComprada);
+
+  let nombreProducto = searchName(articulos, idProducto);
+  let precioUnitario = searchPrize(articulos, idProducto);
+
+  //console.log(nombreProducto, precioUnitario)
+  carritoDeCompras.agregarProducto(idProducto, nombreProducto, precioUnitario, cantidadComprada);
+
+  let option = ingresarOption();
+
   switch (option) {
     case 'comprar':
-
-      mostrarCatalogo(articulos);
-
-      idProducto = prompt('Ingrese el ID del articulo que desea comprar: ');    
-      idProducto = parseInt(idProducto);
-
-      while (articulos.some(articulo => articulo.id === idProducto) === false) {
-
-        alert('Error: Opcion no valida. Vuelva a intentar.');
-        idProducto = prompt('Ingrese el ID del articulo que desea comprar: ');
-        idProducto = parseInt(idProducto);
-
-      };
-
-      let cantidadComprada = prompt('Ingrese la cantidad que desea comprar: ', 1);
-      cantidadComprada = parseInt(cantidadComprada);
-
-      while (cantidadComprada <= 0) {
-
-        alert('Error:Debe ingresar un numero valido. Vuelva a intentar.');
-        cantidadComprada = prompt('Ingrese el ID del articulo que desea comprar: ');
-        cantidadComprada = parseInt(cantidadComprada);
-      };
-
-      let nombreProducto = searchName(articulos, idProducto);
-      let precioUnitario = searchPrize(articulos, idProducto);
-
-      //console.log(nombreProducto, precioUnitario)
-      carritoDeCompras.agregarProducto(idProducto, nombreProducto, precioUnitario, cantidadComprada);
-
-      option = ingresarOption();
       break;
 
     case 'mirar':
+      
       carritoDeCompras.calcularTotalArticulosMontoTotal();
       carritoDeCompras.calcularImpuestos(iva);
       carritoDeCompras.calcularTotalAPagar();
@@ -264,14 +250,16 @@ while (option !== 'salir') {
       break;
     
     case 'catalogo':
+
       mostrarCatalogo(articulos);
+
       option = ingresarOption();
       break;
 
     case 'remover':
       carritoDeCompras.mostrarCompraConAlert();
 
-      idProducto = prompt('Ingrese el ID del articulo que desea remover: ');    
+      let idProducto = prompt('Ingrese el ID del articulo que desea remover: ');    
       idProducto = parseInt(idProducto);
     
       while (articulos.some(articulo => articulo.id === idProducto) === false) {
@@ -284,25 +272,21 @@ while (option !== 'salir') {
 
       carritoDeCompras.removerProducto(idProducto);
 
-      carritoDeCompras.calcularTotalArticulosMontoTotal();
-      carritoDeCompras.calcularImpuestos(iva);
-      carritoDeCompras.calcularTotalAPagar();
-  
-      carritoDeCompras.mostrarCompraConAlert(); 
-
       option = ingresarOption();
       break;
 
     case 'vaciar':
       carritoDeCompras.vaciarCarrito();
 
-      carritoDeCompras.calcularTotalArticulosMontoTotal();
-      carritoDeCompras.calcularImpuestos(iva);
-      carritoDeCompras.calcularTotalAPagar();
-  
-      carritoDeCompras.mostrarCompraConAlert(); 
-
       option = ingresarOption();
+      break;
+    case 'salir':
+      option = 'salir';
+      break;
+
+    default:
+      // Por si acaso
+      option = 'comprar';
       break;
   }
 };
