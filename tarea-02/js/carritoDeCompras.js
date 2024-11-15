@@ -98,7 +98,7 @@ const carritoDeCompras = {
     for (let i = 0; i < size; i++) {
 
       const { id, nombre, precio, cantidad, venta } = this.productos[i];
-      productosDetalles.push(id + ' | ' + nombre + ' x ' + cantidad + ' | ' + precio + '$ | ' + venta + '$ \n');
+      productosDetalles.push(id + ' | ' + nombre + ' x ' + cantidad + ' | ' + precio + '$ x Unidad | ' + venta + '$ Total\n');
 
     };
     return productosDetalles;
