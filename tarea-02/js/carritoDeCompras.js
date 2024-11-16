@@ -98,15 +98,15 @@ const carritoDeCompras = {
     for (let i = 0; i < size; i++) {
 
       const { id, nombre, precio, cantidad, venta } = this.productos[i];
-      productosDetalles.push(id + ' | ' + nombre + ' x ' + cantidad + ' | ' + precio + '$ x Unidad | ' + venta + '$ Total\n');
+      productosDetalles.push(id + ' | ' + nombre + ' x ' + cantidad + ' | ' + precio + '$ x Unidad | ' + venta + '$ Total');
 
     };
-    return productosDetalles;
+    return productosDetalles.join('\n');
   },
   mostrarCompraPorConsola: function() {
     console.log( 'Carrito de Compras:' + '\n' +
           '---------------------------------------------' + '\n' +
-          this.productosDetalles() +
+          this.productosDetalles()  + '\n' +
           '---------------------------------------------' + '\n' +
           'Monto Total: ' + this.montoTotal + '\n' +
           'Iva 16%  ----  ' + this.impuestos + '\n' + 
@@ -119,7 +119,7 @@ const carritoDeCompras = {
   mostrarCompraConAlert: function() {
     alert( 'Carrito de Compras:' + '\n' +
           '---------------------------------------------' + '\n' +
-          this.productosDetalles() +
+          this.productosDetalles()  + '\n' +
           '---------------------------------------------' + '\n' +
           'Monto Total: ' + this.montoTotal + '\n' +
           'Iva 16%  ----  ' + this.impuestos + '\n' + 
@@ -200,9 +200,9 @@ function catalogo(productos) {
   let catalogo = [];
   for (let i = 0; i < productos.length; i++) {
     const { id, nombre, precioPorUnidad} = productos[i];
-    catalogo.push(id + ' | ' + nombre + ' => ' + precioPorUnidad + '\$ \n');
+    catalogo.push(id + ' | ' + nombre + ' => ' + precioPorUnidad + '\$');
   };
-  return catalogo;
+  return catalogo.join('\n');
 };
 function searchName(productos, id) {
   let producto = productos.find(producto => producto.id === id);
@@ -217,7 +217,7 @@ function mostrarCatalogo(productos) {
   console.log('Catalogo de Productos:\n' +
     '---------------------------------------------' + '\n' +
     'ID | Articulo => Precio Unitario\n' +
-    catalogo(productos) +
+    catalogo(productos) + '\n' +
     '---------------------------------------------' + '\n' +
     'Si desea comprar algo, de aceptar para continuar.'
    );
@@ -225,7 +225,7 @@ function mostrarCatalogo(productos) {
   alert('OK! Vea nuestro catalogo:\n' +
         '---------------------------------------------' + '\n' +
         'ID | Articulo => Precio Unitario\n' +
-        catalogo(productos)+
+        catalogo(productos) + '\n' +
         '---------------------------------------------' + '\n' +
         ' Si desea comprar algo, de aceptar para continuar.'
         );
