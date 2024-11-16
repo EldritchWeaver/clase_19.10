@@ -34,8 +34,9 @@ items.forEach(item => {
     `);
 });
 
-// Calcular el monto total, IVA y total a pagar
-const montoTotal = items.reduce((total, item) => total + item.costo, 0);
+for (let i = 0; i < items.lenght; i++) {
+      const montoTotal += items.costo;
+    };
 const iva = montoTotal * 0.16; // 16% de IVA
 const totalAPagar = montoTotal + iva;
 const cantidad = 23;
