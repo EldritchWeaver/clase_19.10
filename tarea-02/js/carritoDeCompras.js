@@ -154,8 +154,8 @@ const carritoDeCompras = {
           <td>${id}</td>
           <td>${nombre}</td>
           <td>${cantidad}</td>
-          <td>${precio}</td>
-          <td>${venta}</td>
+          <td>${precio} $</td>
+          <td>${venta} $</td>
       </tr>
     `);
   };
@@ -175,9 +175,9 @@ const carritoDeCompras = {
   
               <div class="card">
                   <ul>
-                      <li>${this.montoTotal} $</li>
-                      <li>${this.impuestos} $</li>
-                      <li>${this.totalAPagar} $</li>
+                      <li>${this.montoTotal} $ </li>
+                      <li>${this.impuestos} $ </li>
+                      <li>${this.totalAPagar} $ </li>
                   </ul>
               </div>
               <div class="card card2">
