@@ -339,7 +339,7 @@ while (option !== 'salir') {
     
     case 'catalogo':
       mostrarCatalogo(articulos);
-      option = 'comprar';
+      option = ingresarOption();
       break;
 
     case 'remover':
@@ -383,7 +383,7 @@ while (option !== 'salir') {
       carritoDeCompras.calcularTotalArticulosMontoTotal();
       carritoDeCompras.calcularImpuestos(iva);
       carritoDeCompras.calcularTotalAPagar();
-
+      
       carritoDeCompras.imprimirHTML();
       option = 'salir';
       break;
