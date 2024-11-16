@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50em;
+    margin: 0;
+    font-weight: 500;
+}
+.factura {
+    width: auto;
+    height: auto;
+    border: 1px solid #000; 
+}
+table {
+    width: 100%; /* Ancho de la tabla */
+    border-collapse: collapse; /* Colapsa los bordes */
+}
+th, td {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
+}
+h1 {
+    text-align: center;
+}
+ul, li {
+    list-style-type: none;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: left;
+    justify-content: left;
+    align-items: center;
+    gap: auto;
+    padding-bottom: auto;
+    margin: auto;
+}
+.card{
+    display: flex;
+    align-items: left; 
+    justify-content: left;
+    flex-direction: column;
+    margin: auto;
+}
+.card2{
+    border-top: 1px solid black;
+    font-weight: 600;
+}

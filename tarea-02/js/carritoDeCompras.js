@@ -128,7 +128,70 @@ const carritoDeCompras = {
           'Items: ' + this.totalArticulos + '\n' +
           '---------------------------------------------'
         );
-  } 
+  },
+  imprimirHTML: function() {
+    document.write(`
+      <div class="factura">
+          <h1>FACTURA</h1>
+          <hr>
+          <table>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Producto</th>
+                      <th>Cantidad a Comprar</th>
+                      <th>Precio por Unidad</th>
+                      <th>Costos</th>
+                  </tr>
+              </thead>
+              <tbody>
+  `);
+  let size = this.productos.length;
+  for (let i = 0; i < size; i++) {
+    const { id, nombre, precio, cantidad, venta } = this.productos[i];
+    document.write(`
+      <tr>
+          <td>${id}</td>
+          <td>${nombre}</td>
+          <td>${cantidad}</td>
+          <td>${precio}</td>
+          <td>${venta}</td>
+      </tr>
+    `);
+  };
+  document.write(`
+              </tbody>
+          </table>
+          <hr>
+          <section class="info">
+  
+              <div class="card">
+                  <ul>
+                      <li>Monto Total: </li>
+                      <li>Iva -- 16%: </li>
+                      <li>Total a Pagar: </li>
+                  </ul>
+              </div>
+  
+              <div class="card">
+                  <ul>
+                      <li>${this.montoTotal} $</li>
+                      <li>${this.impuestos} $</li>
+                      <li>${this.totalAPagar} $</li>
+                  </ul>
+              </div>
+              <div class="card card2">
+                  <p>Items:</p>
+              </div>
+  
+              <div class="card card2">
+                  <p>${this.totalArticulos}</p>
+              </div>
+          </section>
+          <hr>
+      </div>
+  `);
+  }
 }; // FIN DE LA ESTRUCTURA DEL CARRITO DE COMPRAS.
 /*---------------OBJECTS_DEFINITION_SECTION----------------*/
 
@@ -173,10 +236,10 @@ function ingresarOption() {
                   'Si desea mirar el catalogo de nuevo ingrese "catalogo"' + '\n' +
                   'Si decea remover un producto ingrese "remover"' + '\n' +
                   'Si decea vaciar el carrito ingrese "vaciar"' + '\n' +
-                  'Si decea terminar la compra ingrese "salir"'
+                  'Si decea terminar la compra ingrese "terminar"'
                 );
  
-  while (option !== 'comprar' && option !== 'mirar'  && option !== 'catalogo' && option !== 'remover' && option !== 'vaciar' && option !== 'salir') {
+  while (option !== 'comprar' && option !== 'mirar'  && option !== 'catalogo' && option !== 'remover' && option !== 'vaciar' && option !== 'terminar') {
 
     alert('Error: Opcion no valida. Vuelva a intentar.');
     option = prompt('¿Si desea comprar otra cosa ingrese "comprar".' + '\n' +
@@ -184,7 +247,7 @@ function ingresarOption() {
                   'Si desea mirar el catalogo de nuevo ingrese "catalogo"' + '\n' +
                   'Si decea remover un producto ingrese "remover"' + '\n' +
                   'Si decea vaciar el carrito ingrese "vaciar"' + '\n' +
-                  'Si decea terminar la compra ingrese "salir"'
+                  'Si decea terminar la compra ingrese "terminar"'
                 );
   };
   return option;
@@ -314,6 +377,15 @@ while (option !== 'salir') {
       carritoDeCompras.mostrarCompraConAlert(); 
 
       option = ingresarOption();
+      break;
+
+    case 'terminar':
+      carritoDeCompras.calcularTotalArticulosMontoTotal();
+      carritoDeCompras.calcularImpuestos(iva);
+      carritoDeCompras.calcularTotalAPagar();
+      
+      carritoDeCompras.imprimirHTML();
+      option = 'salir';
       break;
   }
 };
