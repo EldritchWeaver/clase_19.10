@@ -1,0 +1,22 @@
+.title{
+    color: aqua;
+    font-size: 64px;
+}
+
+.bgred{
+    background-color: red;
+}
+.bgblue{
+    background-color: blue;
+}
+
+.button{
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    margin: auto;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    font-weight: bold;
+}
