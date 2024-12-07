@@ -10,7 +10,7 @@
     background-color: blue;
 }
 
-.button{
+/* .button{
     height: 50px;
     width: 300px;
     border-radius: 5px;
@@ -19,4 +19,37 @@
     background-color: rgb(27, 27, 27);
     color: white;
     font-weight: bold;
+}
+
+ */
+a:hover{
+    color: whitesmoke;
+    text-decoration: none;
+}
+a:link{
+    color: whitesmoke;
+    text-decoration: none;
+}
+a:visited{
+    color: whitesmoke;
+    text-decoration: none;
+}
+a:active{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.navigation{
+    color: whitesmoke;
+    list-style: none;
+    font-size: 30px;
+    display: flex;
+    align-items: center; 
+    justify-content: left;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+}
+.navigation li{
+    padding: 10px;
+    margin: 10px;
 }
