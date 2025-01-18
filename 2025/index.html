@@ -6,6 +6,34 @@
     <title>Document</title>
 </head>
 <body>
-    <script type="text/javascript" src="/2025/events-repaso.js"></script>
+
+    <!-- FORM VALIDATION -->
+
+    <form action="#" method="post" name="form" id="form" onsubmit="return false">
+
+        <label for="name">Nombre</label>
+        <input type="text" id="name">
+        <span id="error_name"></span>
+
+        <label for="last_name">Apellido</label>
+        <input type="text" id="last_name">
+        <span id="error_last_name"></span>
+
+        <label for="age">Edad</label>
+        <input type="text" id="age">
+        <span id="error_age"></span>
+
+        <input type="submit" value="SEND" id="submit">
+    </form>
+
+    <section class="formulario">
+        <h3> Datos del Alumno</h3>
+
+        <p id="p_name"> Nombre: <span></span></p>
+        <p id="p_last_name"> Apellido: <span></span></p>
+        <p id="p_age"> Edad: <span></span></p>
+    </section>
+
+    <script type="text/javascript" src="/2025/js/events-repaso.js"></script>
 </body>
 </html>
