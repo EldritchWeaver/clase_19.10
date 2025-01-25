@@ -17,7 +17,7 @@ function buildList() {
 
 buildList(); //Construir lista al cargar la pagina
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('sub', function(event) {
     event.preventDefault(); //Evita el envio del formulario por defecto
 
     var game = document.querySelector('#addGame').value;
