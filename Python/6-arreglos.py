@@ -1,9 +1,8 @@
-#Arrelos o Lists en Python
+# Arrelos o Lists en Python
 meses = ['octubre', 'febrero', 'marzo', 'abril', 'junio', 'julio', 'diciembre']
 print(meses)
 
-#Ordenar elementos de la lista
+# Ordenar elementos de la lista
 meses.sort()
 print(meses[0])
 print(meses)
-

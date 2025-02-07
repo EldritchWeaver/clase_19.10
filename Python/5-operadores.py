@@ -3,18 +3,18 @@ print(2*2)
 print(2/2)
 
 print(2**5)
-print(4**3) #Cuantas veces se va a multiplicar la base -> Potencia
+print(4**3)  # Cuantas veces se va a multiplicar la base -> Potencia
 
-#Python sopporta el orden de las operaciones
+# Python sopporta el orden de las operaciones
 
 print((2+3)*5)
 
-#Incremento
+# Incremento
 
 numero = 50
 print(numero)
 
-#incrementar
+# incrementar
 
 numero += 5
 print(numero)

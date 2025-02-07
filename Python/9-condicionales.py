@@ -1,4 +1,4 @@
-#Condicional if, elif, else
+# Condicional if, elif, else
 """ tipo = 'estudiante'
 
 if tipo == 'estudiante':
@@ -11,8 +11,8 @@ else:
     print('No hay descuento') """
 
 
-#___________-----EJERCICIO-----_____________#
-""" 
+# ___________-----EJERCICIO-----_____________ #
+"""
 def mostrar(type):
     print(f'El usuario es: {type}')
     return True
@@ -25,7 +25,8 @@ def verificar_user_type(user_type):
     elif user_type == 'guest':
         return mostrar(user_type)
     else:
-        print('No hay tipo de usuario: usuario no esta registrado en ninguna base de datos')
+        print('No hay tipo de usuario:
+              usuario no esta registrado en ninguna base de datos')
         return False
 
 user_list = [
@@ -42,20 +43,23 @@ user_list = [
 ]
 for user in user_list:
     var = verificar_user_type(user_list.get(user_type))
-    if var 
-    
+    if var
+
      """
-     
+
+
 def mostrar(user_type):
     print(f'El usuario es: {user_type}')
     return True
+
 
 def verificar_user_type(user_type):
     if user_type in ['root', 'admin', 'guest']:
         return mostrar(user_type)
     else:
-        print('No hay tipo de usuario: usuario no está registrado en ninguna base de datos')
+        print('No hay tipo de usuario: usuario no está registrado')
         return False
+
 
 user_list = [
     {
@@ -69,6 +73,7 @@ user_list = [
         'user_id': '002'
     }
 ]
+
 
 for user in user_list:
     var = verificar_user_type(user['user_type'])

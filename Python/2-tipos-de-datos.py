@@ -1,4 +1,4 @@
-#Tipos de Datos
+# Tipos de Datos
 
 nombre = 'Lucia'                                    #String o cadena de texto
 edad = 30                                           #Entero

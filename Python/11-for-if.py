@@ -1,4 +1,5 @@
-#For mas if
+
+# For mas if
 super_heroes = ['SuperMan', 'SpiderMan', 'WonderWoman', 'IronMan', 'BatMan']
 for heroe in super_heroes:
     if heroe == 'BatMan':
@@ -6,7 +7,7 @@ for heroe in super_heroes:
     else:
         print(heroe)
 
-#___________-----EJERCICIO-----_____________#
+# ___________-----EJERCICIO-----_____________ #
 
 platillos = ['Pasticho', 'Espaguetti a la bolonezza', 'Pizza', 'Ramen', 'Udon']
 for plato in platillos:
