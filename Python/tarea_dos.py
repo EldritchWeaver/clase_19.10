@@ -32,7 +32,10 @@ def retirar():
 
     try:
         a_retirar = float(a_retirar)
-        datos_cuenta['ammount'] = datos_cuenta['ammount'] - a_retirar
+        if datos_cuenta['ammount'] >= a_retirar:
+            datos_cuenta['ammount'] = datos_cuenta['ammount'] - a_retirar
+        else:
+            print('Error: Saldo Insuficiente')
     except ValueError:
         print('Error: Dato invalido. Bye')
 
