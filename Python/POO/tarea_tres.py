@@ -11,14 +11,14 @@ class Medico:
         self.nombre = nombre
         self.apellido = apellido
         self.especialidad = especialidad
-        self.tarea_actual = ''
+        self.tarea_actual = 'Desocupado'
         self.ocupado = False
 
     def cambiar_medico(self, nombre, apellido, especialidad):
         self.nombre = nombre
         self.apellido = apellido
         self.especialidad = especialidad
-        self.tarea_actual = ''
+        self.tarea_actual = 'Desocupado'
         self.ocupado = False
 
     def asig_tarea(self, tareas):
@@ -28,14 +28,14 @@ class Medico:
         tarea = input('Asigne una tarea: ')
         self.tarea_actual = tarea
 
-        if self.tarea_actual == '':
+        if self.tarea_actual == 'Desocupado':
             self.ocupado = False
         else:
             self.ocupado = True
 
     def desocupar(self):
         if self.tarea_actual:
-            self.tarea_actual = ''
+            self.tarea_actual = 'Desocupado'
             self.ocupado = False
         else:
             pass
@@ -49,7 +49,7 @@ especialidades = [
     'Otorrinolaringología', 'Endocrinología', 'Nefrología'
                   ]  # Son algunas especialdades que me encontre por alli
 
-tareas = ['Consulta', 'Diagnostico', 'Tratamiento', 'Cirugia']
+tareas = ['Consulta', 'Diagnostico', 'Tratamiento', 'Cirugia', 'Desocupado']
 
 # TESTS:
 
