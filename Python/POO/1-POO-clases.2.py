@@ -2,9 +2,11 @@ class Restaurante:
     def agregar_restaurante(self, nombre):
         self.nombre = nombre
         print(f'Agregando restaurante "{self.nombre}"...')
+
     def eliminar_restaurante(self, nombre):
         self.nombre = nombre
         print(f'Eliminado restaurante "{self.nombre}"...')
+
     def mostrar_informacion(self):
         print(f'El nombre del restaurante es "{self.nombre}"...')
 
