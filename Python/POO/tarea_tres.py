@@ -41,6 +41,15 @@ class Medico:
             pass
 
 
+class Mdc_Clinica(Medico):
+    def __init__(self, nombre, apellido, especialidad, clinica):
+        super().__init__(nombre, apellido, especialidad)
+        self.clinica = clinica
+
+    def cambiar_medico(self, nombre, apellido, especialidad, clinica):
+        super().cambiar_medico(nombre, apellido, especialidad)
+        self.clinica = clinica
+
 especialidades = [
     'Medicina General', 'Pediatria', 'Cardiologia',
     'Neurologia', 'Dermatologia', 'Gastroenterologia',
@@ -52,7 +61,7 @@ especialidades = [
 tareas = ['Consulta', 'Diagnostico', 'Tratamiento', 'Cirugia', 'Desocupado']
 
 # TESTS:
-
+"""
 medico_uno = Medico('Jhoan', 'Martinez', especialidades[0])
 medico_uno.asig_tarea(tareas)
 print(medico_uno.nombre, medico_uno.apellido, medico_uno.especialidad, medico_uno.tarea_actual, medico_uno.ocupado)
@@ -66,3 +75,9 @@ medico_dos = Medico('Jhoan', 'Martinez', especialidades[10])
 medico_dos.asig_tarea(tareas)
 print(medico_dos.nombre, medico_dos.apellido, medico_dos.especialidad, medico_dos.tarea_actual, medico_dos.ocupado)
 print(medico_uno.nombre, medico_uno.apellido, medico_uno.especialidad, medico_uno.tarea_actual, medico_uno.ocupado)
+"""
+
+print('')
+medico = Mdc_Clinica('Jhoan', 'Martinez', especialidades[10], 'Frambuesa')
+medico.asig_tarea(tareas)
+print(medico.nombre, medico.apellido, medico.especialidad, medico.clinica, medico.tarea_actual, medico.ocupado)
