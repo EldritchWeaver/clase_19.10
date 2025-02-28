@@ -62,7 +62,7 @@ restaurante_dos = Restaurante()
 
 print('----------------------')
 restaurante_dos.mostrar_informacion()
-restarestaurante_dos.guardar_datos()
+restaurante_dos.guardar_datos()
 
 print('----------------------')
 restaurante_dos.cargar_datos('El pollo loco')
