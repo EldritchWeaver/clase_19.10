@@ -47,10 +47,11 @@ class Restaurante:
         except FileNotFoundError:
             print(f'El archivo: {nombre_archivo} no existe.')  # Error si el archivo no existe
 
+
 print('----------------------')
 restaurante = Restaurante("El pollo loco", "Comida casual", 50)
-print('----------------------')
 
+print('----------------------')
 restaurante.mostrar_informacion()
 restaurante.guardar_datos()
 
